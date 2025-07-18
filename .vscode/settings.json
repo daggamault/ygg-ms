@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports.biome": "always"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "files.exclude": {
+    // "node_modules": true
+  }
+}
