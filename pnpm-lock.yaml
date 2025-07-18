@@ -14,15 +14,18 @@ importers:
       '@types/node':
         specifier: 22.9.0
         version: 22.9.0
-      esbuild:
-        specifier: ^0.25.6
-        version: 0.25.6
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
 
   apps/admin:
     dependencies:
+      '@ygg/admin-sdk':
+        specifier: workspace:*
+        version: link:../../libs/admin-sdk
+      '@ygg/shared-sdk':
+        specifier: workspace:*
+        version: link:../../libs/shared-sdk
       dotenv:
         specifier: ^17.2.0
         version: 17.2.0
@@ -36,9 +39,18 @@ importers:
       drizzle-kit:
         specifier: ^0.31.4
         version: 0.31.4
+      esbuild:
+        specifier: ^0.25.6
+        version: 0.25.6
 
   apps/api:
     dependencies:
+      '@ygg/admin-sdk':
+        specifier: workspace:*
+        version: link:../../libs/admin-sdk
+      '@ygg/shared-sdk':
+        specifier: workspace:*
+        version: link:../../libs/shared-sdk
       compression:
         specifier: ^1.8.1
         version: 1.8.1
@@ -76,6 +88,9 @@ importers:
       '@types/morgan':
         specifier: ^1.9.10
         version: 1.9.10
+      esbuild:
+        specifier: ^0.25.6
+        version: 0.25.6
 
   apps/web:
     dependencies:
@@ -98,6 +113,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.1.6
         version: 19.1.6(@types/react@19.1.8)
+      esbuild:
+        specifier: ^0.25.6
+        version: 0.25.6
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -105,11 +123,19 @@ importers:
         specifier: ^4.1.11
         version: 4.1.11
 
-  libs/redis:
+  libs/admin-sdk: {}
+
+  libs/shared-sdk:
     dependencies:
+      drizzle-orm:
+        specifier: ^0.44.3
+        version: 0.44.3(postgres@3.4.7)
       ioredis:
         specifier: ^5.6.1
         version: 5.6.1
+      postgres:
+        specifier: ^3.4.7
+        version: 3.4.7
     devDependencies:
       '@types/ioredis':
         specifier: ^5.0.0

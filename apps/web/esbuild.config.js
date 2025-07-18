@@ -30,7 +30,7 @@ const config = {
   loader: { '.tsx': 'tsx', '.ts': 'tsx' },
   plugins: [postcssPlugin],
   alias: {
-    '@': '../../libs'
+    '@ygg': '../../libs'
   },
   ...(!isDev && {
     minify: true,

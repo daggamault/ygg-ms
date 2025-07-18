@@ -1,10 +1,10 @@
 import {
-  pgTable,
-  serial,
-  text,
+  index,
   integer,
   pgEnum,
-  index
+  pgTable,
+  serial,
+  text
 } from 'drizzle-orm/pg-core';
 import { subTenants } from './tenants';
 

@@ -1,4 +1,6 @@
+import { drizzle } from 'drizzle-orm/postgres-js';
 import Redis from 'ioredis';
+import postgres from 'postgres';
 
 const clients = new Map<string, Redis>();
 
@@ -14,3 +16,5 @@ export const redis = (url: string) => {
     );
   return clients.get(url)!;
 };
+
+export const db = (url: string) => drizzle(postgres(url));

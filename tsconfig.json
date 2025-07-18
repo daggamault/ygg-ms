@@ -8,9 +8,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["libs/*/src"]
-    }
+    "baseUrl": "."
   }
 }

@@ -13,7 +13,7 @@ const config = {
   target: 'node22',
   packages: 'external',
   alias: {
-    '@': '../../libs'
+    '@ygg': '../../libs'
   },
   ...(!isDev && {
     minify: true,

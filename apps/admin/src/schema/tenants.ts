@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, index } from 'drizzle-orm/pg-core';
+import { index, integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
 
 export const tenants = pgTable(
   'tenants',

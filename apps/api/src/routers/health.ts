@@ -1,5 +1,5 @@
+import { redis } from '@ygg/shared-sdk';
 import { Router } from 'express';
-import { redis } from '@/redis';
 
 type Health = 'up' | 'down';
 

@@ -1,10 +1,12 @@
 {
-  "name": "@ygg/redis",
+  "name": "@ygg/shared-sdk",
   "type": "module",
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "ioredis": "^5.6.1"
+    "ioredis": "^5.6.1",
+    "drizzle-orm": "^0.44.3",
+    "postgres": "^3.4.7"
   },
   "devDependencies": {
     "@types/ioredis": "^5.0.0"
