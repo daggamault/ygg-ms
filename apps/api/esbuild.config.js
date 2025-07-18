@@ -5,13 +5,16 @@ import * as esbuild from 'esbuild';
 const isDev = process.argv.includes('--dev');
 
 const config = {
-  entryPoints: ['src/index.ts'],
+  entryPoints: ['src/main.ts'],
   bundle: true,
   outfile: '../../dist/api/index.js',
   platform: 'node',
   format: 'esm',
   target: 'node22',
   packages: 'external',
+  alias: {
+    '@': '../../libs'
+  },
   ...(!isDev && {
     minify: true,
     dropLabels: ['DEV']

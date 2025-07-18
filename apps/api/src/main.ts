@@ -4,6 +4,7 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import { routers } from './routers';
 
 const app = express();
 const port = process.env.PORT;
@@ -19,11 +20,11 @@ app.use(
     message: 'Too many requests from this IP, please try again later.'
   })
 );
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.json({ limit: '2mb' }));
+app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 
-app.get('/', (_req, res) => {
-  res.json({ message: 'API is running' });
+routers.forEach(({ path, router }) => {
+  app.use(path, router);
 });
 
 app.listen(port, () => {

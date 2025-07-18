@@ -20,7 +20,7 @@ const postcssPlugin = {
 };
 
 const config = {
-  entryPoints: ['src/index.tsx'],
+  entryPoints: { main: 'src/main.tsx' },
   bundle: true,
   outdir: '../../dist/web',
   platform: 'browser',
@@ -29,6 +29,9 @@ const config = {
   jsx: 'automatic',
   loader: { '.tsx': 'tsx', '.ts': 'tsx' },
   plugins: [postcssPlugin],
+  alias: {
+    '@': '../../libs'
+  },
   ...(!isDev && {
     minify: true,
     treeShaking: true,

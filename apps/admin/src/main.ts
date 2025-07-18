@@ -1,4 +1,4 @@
-import { db } from './db/connection';
+import { db } from './db/db';
 import { users } from './db/schema/users';
 
 const connectToDatabase = async () => {

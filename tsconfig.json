@@ -10,7 +10,7 @@
     "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["libs/*/src"]
     }
   }
 }
