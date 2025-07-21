@@ -1,9 +1,9 @@
-import { index, integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
+import { index, pgTable, text, uuid } from 'drizzle-orm/pg-core';
 
 export const tenants = pgTable(
   'tenants',
   {
-    id: serial('id').primaryKey(),
+    id: uuid('id').primaryKey().defaultRandom(),
     name: text('name').notNull()
   },
   (table) => [index('tenant_name_idx').on(table.name)]
@@ -12,8 +12,8 @@ export const tenants = pgTable(
 export const subTenants = pgTable(
   'sub_tenants',
   {
-    id: serial('id').primaryKey(),
-    tenantId: integer('tenant_id')
+    id: uuid('id').primaryKey().defaultRandom(),
+    tenantId: uuid('tenant_id')
       .notNull()
       .references(() => tenants.id),
     name: text('name').notNull()

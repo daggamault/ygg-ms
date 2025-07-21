@@ -1,11 +1,4 @@
-import {
-  index,
-  integer,
-  pgEnum,
-  pgTable,
-  serial,
-  text
-} from 'drizzle-orm/pg-core';
+import { index, pgEnum, pgTable, text, uuid } from 'drizzle-orm/pg-core';
 import { subTenants } from './tenants';
 
 export const roleEnum = pgEnum('role', ['admin', 'user']);
@@ -13,7 +6,7 @@ export const roleEnum = pgEnum('role', ['admin', 'user']);
 export const users = pgTable(
   'users',
   {
-    id: serial('id').primaryKey(),
+    id: uuid('id').primaryKey().defaultRandom(),
     email: text('email').notNull().unique(),
     password: text('password').notNull()
   },
@@ -23,11 +16,11 @@ export const users = pgTable(
 export const userSubTenantMaps = pgTable(
   'user_sub_tenant_maps',
   {
-    id: serial('id').primaryKey(),
-    userId: integer('user_id')
+    id: uuid('id').primaryKey().defaultRandom(),
+    userId: uuid('user_id')
       .notNull()
       .references(() => users.id),
-    subTenantId: integer('sub_tenant_id')
+    subTenantId: uuid('sub_tenant_id')
       .notNull()
       .references(() => subTenants.id),
     role: roleEnum('role').notNull()

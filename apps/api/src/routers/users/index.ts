@@ -3,4 +3,4 @@ import { getUserByEmail } from './get-user-by-email';
 
 export const usersRouter = Router();
 
-usersRouter.get('/', getUserByEmail);
+usersRouter.get('/email/:email', getUserByEmail);
