@@ -1,8 +1,9 @@
-import { ADMIN_MESSAGE, type AdminGetUserByEmailMsg } from '@ygg/admin-sdk';
+import { GET_USER_BY_EMAIL } from '@ygg/admin-sdk';
+import type { Message } from '@ygg/shared-sdk';
 import { getUserByEmail } from './get-user-by-email';
 
-type MessageHandler = (message: AdminGetUserByEmailMsg) => Promise<void>;
+type MessageHandler = (message: Message<string, unknown>) => Promise<void>;
 
 export const messageHandlers: Record<string, MessageHandler> = {
-  [ADMIN_MESSAGE.GET_USER_BY_EMAIL]: getUserByEmail
+  [GET_USER_BY_EMAIL]: getUserByEmail
 };

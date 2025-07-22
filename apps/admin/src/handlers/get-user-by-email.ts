@@ -1,12 +1,12 @@
-import type {
-  AdminGetUserByEmailMsg,
-  AdminGetUserByEmailRes
-} from '@ygg/admin-sdk';
-import { db, extractErrorMessage, reply } from '@ygg/shared-sdk';
+import type { GetUserByEmailReq, GetUserByEmailRes } from '@ygg/admin-sdk';
+import type { Message } from '@ygg/shared-sdk';
+import { db, extractErrorMessage, publishResponse } from '@ygg/shared-sdk';
 import { eq } from 'drizzle-orm';
 import { users } from '../schema/users';
 
-export const getUserByEmail = async (message: AdminGetUserByEmailMsg) => {
+export const getUserByEmail = async (
+  message: Message<string, GetUserByEmailReq>
+) => {
   const {
     payload: { email }
   } = message;
@@ -18,11 +18,11 @@ export const getUserByEmail = async (message: AdminGetUserByEmailMsg) => {
       .where(eq(users.email, email))
       .limit(1);
 
-    await reply<AdminGetUserByEmailRes>(process.env.REDIS_URL!, message, {
+    await publishResponse<GetUserByEmailRes>(process.env.REDIS_URL!, message, {
       user: user || null
     });
   } catch (error) {
-    await reply(
+    await publishResponse(
       process.env.REDIS_URL!,
       message,
       null,
