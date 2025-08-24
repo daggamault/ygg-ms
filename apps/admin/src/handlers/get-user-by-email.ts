@@ -1,8 +1,8 @@
 import type { GetUserByEmailReq, GetUserByEmailRes } from '@ygg/admin-sdk';
+import { users } from '@ygg/admin-sdk';
 import type { Message } from '@ygg/shared-sdk';
 import { db, extractErrorMessage, publishResponse } from '@ygg/shared-sdk';
 import { eq } from 'drizzle-orm';
-import { users } from '../schema/users';
 
 export const getUserByEmail = async (
   message: Message<string, GetUserByEmailReq>

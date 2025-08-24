@@ -23,13 +23,15 @@ export const publishAndAwaitResponse = async <TRequest, TResponse>(
   const replyChannel = `reply:${Date.now()}-${Math.random().toString(36).substring(2)}`;
   const message = createMessage(type, payload, replyChannel);
 
+  let subscriber: ReturnType<typeof subscribe>;
+
   const responsePromise = new Promise<TResponse>((resolve, reject) => {
     const timeoutId = setTimeout(() => {
-      subscriber.disconnect();
+      subscriber?.disconnect();
       reject(new Error('Request timeout'));
     }, timeout);
 
-    const subscriber = subscribe(redisUrl, replyChannel, (response) => {
+    subscriber = subscribe(redisUrl, replyChannel, (response) => {
       clearTimeout(timeoutId);
       subscriber.disconnect();
       const { payload: responsePayload, error } = response as Message<

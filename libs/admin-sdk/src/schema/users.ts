@@ -1,4 +1,5 @@
 import { index, pgEnum, pgTable, text, uuid } from 'drizzle-orm/pg-core';
+import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { subTenants } from './tenants';
 
 export const roleEnum = pgEnum('role', ['admin', 'user']);
@@ -31,3 +32,7 @@ export const userSubTenantMaps = pgTable(
     index('user_sub_tenant_sub_tenant_id_idx').on(table.subTenantId)
   ]
 );
+
+export type User = InferSelectModel<typeof users>;
+export type UserPublic = Omit<User, 'password' | 'totp_secret'>;
+export type NewUser = InferInsertModel<typeof users>;
