@@ -12,7 +12,7 @@ const routeMessage = async (message: AdminMessage) => {
   if (!handler) {
     console.error(`No handler found for message type: ${type}`);
     await publishResponse(
-      process.env.REDIS_URL,
+      process.env.REDIS_URL!,
       message,
       null,
       `Unknown message type: ${type}`
@@ -26,12 +26,12 @@ const routeMessage = async (message: AdminMessage) => {
     console.error(`Error handling message ${type}:`, error);
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error';
-    await publishResponse(process.env.REDIS_URL, message, null, errorMessage);
+    await publishResponse(process.env.REDIS_URL!, message, null, errorMessage);
   }
 };
 
 const start = async () => {
-  subscribe(process.env.REDIS_URL, ADMIN_CHANNEL, async (message) => {
+  subscribe(process.env.REDIS_URL!, ADMIN_CHANNEL, async (message) => {
     await routeMessage(message as AdminMessage);
     console.log('Message processed and response sent');
   });

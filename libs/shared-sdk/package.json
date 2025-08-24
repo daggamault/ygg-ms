@@ -7,5 +7,5 @@
     "ioredis": "^5.7.0",
     "drizzle-orm": "^0.44.4",
     "postgres": "^3.4.7"
-  } 
+  }
 }

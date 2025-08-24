@@ -7,7 +7,7 @@ import morgan from 'morgan';
 import { routers } from './routers';
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT!;
 
 app.use(helmet());
 app.use(cors());

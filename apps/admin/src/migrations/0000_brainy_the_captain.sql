@@ -21,6 +21,7 @@ CREATE TABLE "users" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"email" text NOT NULL,
 	"password" text NOT NULL,
+	"totp_secret" text,
 	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
@@ -32,4 +33,5 @@ CREATE INDEX "sub_tenant_tenant_id_idx" ON "sub_tenants" USING btree ("tenant_id
 CREATE INDEX "tenant_name_idx" ON "tenants" USING btree ("name");--> statement-breakpoint
 CREATE INDEX "user_sub_tenant_user_id_idx" ON "user_sub_tenant_maps" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "user_sub_tenant_sub_tenant_id_idx" ON "user_sub_tenant_maps" USING btree ("sub_tenant_id");--> statement-breakpoint
-CREATE INDEX "email_idx" ON "users" USING btree ("email");
+CREATE INDEX "email_idx" ON "users" USING btree ("email");--> statement-breakpoint
+INSERT INTO "users" ("email", "password") VALUES ('daggamaul@gmail.com', '$2b$12$Cdz6lyY.wUCclq/C7nP1yeA2M0HwHwJs4FyPJxZzFcIeQmvjFDFHu');

@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash(rm:*)", "Bash(npm run lint)"],
+    "allow": ["Bash(rm:*)", "Bash(npm run lint)", "Bash(pnpm build:*)"],
     "deny": []
   }
 }

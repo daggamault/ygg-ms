@@ -17,7 +17,7 @@ healthRouter.get('/', async (_req, res) => {
     api: { status: 'up' },
     services: { admin: { status: 'up' } },
     redis: {
-      status: (await redis(process.env.REDIS_URL).ping()) ? 'up' : 'down'
+      status: (await redis(process.env.REDIS_URL!).ping()) ? 'up' : 'down'
     },
     timestamp: new Date().toISOString()
   } as HealthRes);

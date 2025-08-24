@@ -1,5 +1,5 @@
 {
-  "id": "a6b50e78-b5c9-478c-af3f-f618ab6144d3",
+  "id": "4f1ae0cb-26fc-48f8-b56b-a5d3a3761ac2",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -230,6 +230,12 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "totp_secret": {
+          "name": "totp_secret",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {

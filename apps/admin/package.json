@@ -10,13 +10,15 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@ygg/shared-sdk": "workspace:*",
     "@ygg/admin-sdk": "workspace:*",
+    "@ygg/shared-sdk": "workspace:*",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
     "postgres": "^3.4.7"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "drizzle-kit": "^0.31.4",
     "esbuild": "^0.25.9"
   }

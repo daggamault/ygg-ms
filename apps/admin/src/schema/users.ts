@@ -8,7 +8,8 @@ export const users = pgTable(
   {
     id: uuid('id').primaryKey().defaultRandom(),
     email: text('email').notNull().unique(),
-    password: text('password').notNull()
+    password: text('password').notNull(),
+    totp_secret: text('totp_secret')
   },
   (table) => [index('email_idx').on(table.email)]
 );
