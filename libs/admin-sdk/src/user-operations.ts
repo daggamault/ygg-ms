@@ -1,5 +1,9 @@
 import type { UserPublic } from './schema/users';
-import type { PaginationReq, PaginatedRes } from './types';
+import type { PaginatedRes, PaginationReq } from './types';
+
+export const GET_USER_BY_EMAIL = 'get-user-by-email';
+export type GetUserByEmailReq = { email: string };
+export type GetUserByEmailRes = { user: { id: string; email: string } | null };
 
 export const GET_ALL_USERS = 'get-all-users';
 export type GetAllUsersReq = PaginationReq;

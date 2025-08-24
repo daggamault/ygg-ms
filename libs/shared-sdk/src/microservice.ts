@@ -17,7 +17,7 @@ export const publishAndAwaitResponse = async <TRequest, TResponse>(
   redisUrl: string,
   channel: string,
   type: string,
-  payload: TRequest,
+  payload?: TRequest,
   timeout = 5000
 ): Promise<TResponse> => {
   const replyChannel = `reply:${Date.now()}-${Math.random().toString(36).substring(2)}`;

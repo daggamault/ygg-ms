@@ -1,5 +1,5 @@
 export * from './constants';
-export * from './get-user-by-email';
+export * from './health-operations';
 export * from './schema';
 export * from './types';
 export * from './user-operations';

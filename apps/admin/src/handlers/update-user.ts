@@ -1,8 +1,8 @@
-import bcrypt from 'bcrypt';
 import type { UpdateUserReq, UpdateUserRes } from '@ygg/admin-sdk';
 import { users } from '@ygg/admin-sdk';
 import type { Message } from '@ygg/shared-sdk';
 import { db, extractErrorMessage, publishResponse } from '@ygg/shared-sdk';
+import bcrypt from 'bcrypt';
 import { eq } from 'drizzle-orm';
 
 export const updateUser = async (message: Message<string, UpdateUserReq>) => {

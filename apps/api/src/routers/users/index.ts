@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { getUserByEmail } from './get-user-by-email';
-import { getAllUsers } from './get-all-users';
 import { createUser } from './create-user';
-import { updateUser } from './update-user';
 import { deleteUser } from './delete-user';
+import { getAllUsers } from './get-all-users';
+import { getUserByEmail } from './get-user-by-email';
+import { updateUser } from './update-user';
 
 export const usersRouter = Router();
 

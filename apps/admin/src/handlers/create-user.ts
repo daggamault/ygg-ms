@@ -1,8 +1,8 @@
-import bcrypt from 'bcrypt';
 import type { CreateUserReq, CreateUserRes } from '@ygg/admin-sdk';
 import { users } from '@ygg/admin-sdk';
 import type { Message } from '@ygg/shared-sdk';
 import { db, extractErrorMessage, publishResponse } from '@ygg/shared-sdk';
+import bcrypt from 'bcrypt';
 
 export const createUser = async (message: Message<string, CreateUserReq>) => {
   const {
